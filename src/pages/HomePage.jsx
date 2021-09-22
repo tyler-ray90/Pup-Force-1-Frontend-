@@ -15,7 +15,7 @@ const apiURL =
 const HomePage = (props) => {
     //! START API CODE
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
     const getFood = async () => {
         const response = await fetch(apiURL);
         const data = await response.json();

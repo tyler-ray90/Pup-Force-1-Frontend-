@@ -59,7 +59,7 @@ const FoodSearch = ({ data, addOrUpdate }) => {
         </div>
     );
 
-    const loading = () => <div>loading...</div>;
+    const loading = () => <div>mock outline of component while loading...</div>;
 
     return data ? loaded() : loading();
 };
