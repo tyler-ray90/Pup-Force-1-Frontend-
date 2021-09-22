@@ -1,0 +1,32 @@
+Nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    padding-left: 1rem;
+    box-shadow: 3px 3px 3px 3px #808080;
+    color: #ffffff;
+    background-color: #282c34;
+}
+
+
+h1 {
+    font-size: 50px;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: yellow;
+}
+
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin-right: 10px;
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+
+.about {
+    margin-right: 15px;
+}
+
