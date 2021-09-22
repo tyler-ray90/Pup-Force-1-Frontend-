@@ -15,7 +15,7 @@ const App = () => {
     //! BrowserRouter already in index.jsx
     return (
         <div className="App">
-            <Nav/>
+            {/* <Nav/> */}
             <Switch>
                 <Route
                     exact path="/"
