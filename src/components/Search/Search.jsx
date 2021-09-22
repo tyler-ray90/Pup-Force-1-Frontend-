@@ -1,3 +1,5 @@
+// Searchbar functionality
+
 function Search() {
     return (
         <section>
@@ -6,6 +8,7 @@ function Search() {
             placeholder="Can my pet have..."
             className="searchbox"
             />
+            <button className='button'>Search</button>
         </section>
     )
 };

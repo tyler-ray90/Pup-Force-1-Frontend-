@@ -1,27 +1,30 @@
 import 'App.scss';
-import {Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 //Imported Pages
-import HomePage from "pages/HomePage";
+import HomePage from 'pages/HomePage';
 
 //Imported Components
-import Search from 'components/Search/Search';
+
 
 
 const App = () => {
     //! BrowserRouter already in index.jsx
-    return <div className="App">;
-    <nav>This is the nav</nav>
-    <Search/>
+    return (
+        <div className="App">
+            <nav>
+                <h1 className='title'>Pooch-a-medic</h1>
 
-        <Switch>
-        <Route exact path = "/" render={(props) => 
-        <HomePage/>
-        } />
-
-
-        </Switch>
-    </div>
+            </nav>
+            <Switch>
+                <Route
+                    exact
+                    path="/"
+                    render={(props) => <HomePage {...props} />}
+                />
+            </Switch>
+        </div>
+    );
 };
 
 export default App;
