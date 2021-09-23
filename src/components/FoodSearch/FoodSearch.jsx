@@ -126,7 +126,10 @@ const FoodSearch = (props) => {
                         {animalList[0]?.slice(-1) === 's'
                             ? animalList[0]
                             : `${animalList[0]}s`}{' '}
-                        and {foodInput}s
+                        and{' '}
+                        {foodInput?.slice(-1) === 's'
+                            ? foodInput
+                            : `${foodInput}s`}{' '}
                     </Link>
                 </div>
             ) : (
