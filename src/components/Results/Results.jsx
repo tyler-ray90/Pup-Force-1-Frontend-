@@ -4,11 +4,7 @@ import { data as dataAtom } from 'atoms';
 import { useRecoilState } from 'recoil';
 import { findResult } from 'utils.js/parse';
 import { useState, useEffect } from 'react';
-import {
-    waitingString,
-    isEdibleString,
-    isNotEdibleString,
-} from 'constants/displayStrings';
+import { isEdibleString, isNotEdibleString } from 'constants/displayStrings';
 
 const Results = () => {
     const { food, animal } = useParams();
@@ -55,7 +51,7 @@ const Results = () => {
                         ? 'Safe to Eat'
                         : 'Not Recommended'}
                 </h3>
-                {result.notes && (
+                {result.notes && result.notes !== '' && (
                     <div className="results__notes">
                         <em style={{ color: 'yellow' }}>
                             Notes: {result.notes}
