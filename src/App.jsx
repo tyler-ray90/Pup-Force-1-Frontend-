@@ -12,6 +12,10 @@ import { Route, Switch } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import Nav from 'components/Nav/Nav';
 import FoodDetail from 'components/FoodDetail/FoodDetail';
+import TrendingPage from 'pages/TrendingPage';
+
+
+
 import { apiURL } from 'constants/endpoints';
 
 const App = () => {
@@ -68,6 +72,10 @@ const App = () => {
                 <Route
                     path="/results/:food/:animal"
                     render={(props) => <ResultPage {...props} />}
+                />
+                <Route
+                    path="/trending"
+                    render={(props) => <TrendingPage />}
                 />
                 <Route render={() => <Redirect to="/" />} />
             </Switch>
