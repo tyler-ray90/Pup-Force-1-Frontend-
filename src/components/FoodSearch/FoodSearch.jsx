@@ -8,6 +8,7 @@ const FoodSearch = ({ data, addOrUpdate }) => {
     const [foodInput, setFoodInput] = useState('');
     const [foodList, setFoodList] = useState([]);
     const [animalList, setAnimalList] = useState([]);
+    // const [answer, setAnswer] = useState(null);
 
     const toggleListOpen = () => {
         isListOpen ? setIsListOpen(false) : setIsListOpen(true);
@@ -28,6 +29,10 @@ const FoodSearch = ({ data, addOrUpdate }) => {
             setAnimalList(animalList);
         }
     }, [data]);
+
+    // useEffect(() => {
+
+    // }, [foodInput, animalList])
 
     const handleAnimalSelection = (e) => {
         e.preventDefault();
@@ -85,7 +90,8 @@ const FoodSearch = ({ data, addOrUpdate }) => {
                     setInput={setFoodInput}
                 />
                 <div className="foodSearch__grayLine"></div>
-                <button className="foodSearch__button">?</button>
+                <div></div>
+                {/* <button className="foodSearch__button">?</button> */}
             </div>
         );
     };
