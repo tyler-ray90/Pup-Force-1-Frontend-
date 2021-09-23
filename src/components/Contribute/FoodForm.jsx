@@ -26,8 +26,8 @@ const FoodForm = ({ currentAnimal, currentFood }) => {
     };
 
     const [formData, setFormData] = useState({
-        food: currentFood,
-        animal: currentAnimal,
+        food: currentFood.trim(),
+        animal: currentAnimal.trim(),
         edible: false,
         notes: '',
     });
