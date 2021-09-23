@@ -83,7 +83,9 @@ const FoodSearch = (props) => {
                         className="foodSearch__dropdown__placeholder"
                         onClick={toggleListOpen}
                     >
-                        {animalList[0]}
+                        {animalList[0]?.slice(-1) === 's'
+                            ? animalList[0]
+                            : `${animalList[0]}s`}
                         {/* {animalList[0] ? `${animalList[0]}s` : 'server down!'} */}
                         {/* {animalList[0] ? `${animalList[0]}s` : 'server down!'} */}
                     </p>
@@ -120,7 +122,11 @@ const FoodSearch = (props) => {
             {[isEdibleString, isNotEdibleString].includes(result.answer) ? (
                 <div>
                     <Link to={`/results/${foodInput}/${animalList[0]}`}>
-                        Learn more about {animalList[0]}s and {foodInput}s
+                        Learn more about{' '}
+                        {animalList[0]?.slice(-1) === 's'
+                            ? animalList[0]
+                            : `${animalList[0]}s`}{' '}
+                        and {foodInput}s
                     </Link>
                 </div>
             ) : (
