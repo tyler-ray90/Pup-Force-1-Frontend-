@@ -19,7 +19,6 @@ const HomePage = (props) => {
     const getFood = async () => {
         const response = await fetch(apiURL);
         const data = await response.json();
-        console.log(data);
         setData(data);
     };
 

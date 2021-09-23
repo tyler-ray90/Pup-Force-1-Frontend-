@@ -79,7 +79,7 @@ const FoodSearch = ({ data, addOrUpdate }) => {
                 <div className="foodSearch__grayLine"></div>
                 <h2 className="foodSearch__h2">Eat</h2>
                 <AutoComplete
-                    placeholder={data[0].food}
+                    placeholder={data[0]?.food}
                     suggestions={foodList}
                     input={foodInput}
                     setInput={setFoodInput}
