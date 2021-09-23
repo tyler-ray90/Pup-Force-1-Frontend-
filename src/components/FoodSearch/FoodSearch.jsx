@@ -3,12 +3,14 @@ import { useEffect, useState } from 'react';
 
 import './FoodSearch.scss';
 
+const unknownAnswerString = '❓';
+
 const FoodSearch = ({ data, addOrUpdate }) => {
     const [isListOpen, setIsListOpen] = useState(false);
     const [foodInput, setFoodInput] = useState('');
     const [foodList, setFoodList] = useState([]);
     const [animalList, setAnimalList] = useState([]);
-    // const [answer, setAnswer] = useState(null);
+    const [answer, setAnswer] = useState(unknownAnswerString);
 
     const toggleListOpen = () => {
         isListOpen ? setIsListOpen(false) : setIsListOpen(true);
@@ -30,9 +32,35 @@ const FoodSearch = ({ data, addOrUpdate }) => {
         }
     }, [data]);
 
-    // useEffect(() => {
+    useEffect(() => {
+        if (
+            data &&
+            foodInput !== '' &&
+            animalList.length !== 0 &&
+            !isListOpen
+        ) {
+            setAnswer(
+                findAnswer({
+                    selectedFood: foodInput,
+                    selectedAnimal: animalList[0],
+                })
+            );
+        }
+    }, [data, foodInput, animalList]);
 
-    // }, [foodInput, animalList])
+    const findAnswer = ({ selectedFood, selectedAnimal }) => {
+        const info = data.find(({ food }) => food === selectedFood);
+        if (!info) {
+            return unknownAnswerString;
+        }
+        const answer = info.data.find(
+            ({ animal }) => animal === selectedAnimal
+        );
+        if (!answer) {
+            return unknownAnswerString;
+        }
+        return answer.edible;
+    };
 
     const handleAnimalSelection = (e) => {
         e.preventDefault();
@@ -90,7 +118,7 @@ const FoodSearch = ({ data, addOrUpdate }) => {
                     setInput={setFoodInput}
                 />
                 <div className="foodSearch__grayLine"></div>
-                <div></div>
+                <div className="foodSearch__button">{answer}</div>
                 {/* <button className="foodSearch__button">?</button> */}
             </div>
         );
