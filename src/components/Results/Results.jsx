@@ -55,6 +55,13 @@ const Results = () => {
                         ? 'Safe to Eat'
                         : 'Not Recommended'}
                 </h3>
+                {result.notes && (
+                    <div className="results__notes">
+                        <em style={{ color: 'yellow' }}>
+                            Notes: {result.notes}
+                        </em>
+                    </div>
+                )}
                 {result.answer === isNotEdibleString && (
                     <button className="results__contactVet">
                         <span className="results__contactVet__star">*</span>
