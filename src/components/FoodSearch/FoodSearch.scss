@@ -2,36 +2,45 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
     margin: 0 auto;
+    font-family: 'Inter', sans-serif;
 
     &__h2 {
-        font-size: 2rem;
+        font-size: 64px;
+        color: #FFFFFF;
     }
 
     &__dropdown {
-        width: 100px;
-        height: 30px;
-        border-radius: 20px;
-        background-color: #d9d9d9;
+        width: 337px;
+        height: 78px;
+        border-radius: 39px;
+        background-color: #d8FEDE;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
 
         &__placeholder {
-            color: white;
-            font-size: 1rem;
+            color: black;
+            font-size: 64px;
+            font-weight: bold;
+            line-height: 64px;
         }
 
         &__list {
             list-style: none;
             position: absolute;
-            top: 35px;
-            min-height: 50px;
-            width: 100px;
-            background-color: #d9d9d9;
-            border: 1px solid #d9d9d9;
+            top: 90px;
+            // min-height: 50px;
+            max-height: 100px;
+            overflow: scroll;
+            width: 278px;
+            background-color: #FFFFFF;
+            border: 1px solid #C9CACE;
+            border-radius: 0px 0px 8px 8px;
             padding: 0;
             display: flex;
             flex-direction: column;
@@ -39,10 +48,22 @@
             justify-content: center;
 
             &__item {
-                color: white;
+                color: black;
                 text-align: center;
                 cursor: pointer;
                 width: 100%;
+                font-family: 'Inter', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 30px;
+                line-height: 50px;
+            }
+
+            &__blackLine {
+                width: 245px;
+                height: 1px;
+                background-color: #C9CACE;
+                margin: 0 auto;
             }
 
             &__item:hover {
@@ -60,6 +81,8 @@
             color: white;
             font-size: 1rem;
             text-align: center;
+            
+            
             &::placeholder {
                 color: white;
                 text-align: center;
@@ -69,24 +92,29 @@
     }
 
     &__button {
-        background-color: #d9d9d9;
+        background-color: #C0DDFB;
+        box-shadow: 10px 10px 20px rgba(122, 122, 122, 0.25);
         border-radius: 50%;
         min-width: fit-content;
-        width: 40px;
-        height: 40px;
+        width: 99px;
+        height: 99px;
         border: none;
         font-size: 1.3rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
+        color: black;
         margin-top: 20px;
     }
 
     &__grayLine {
-        width: 100px;
-        height: 1px;
+        width: 278px;
+        height: 4px;
         background-color: #c4c4c4;
-        margin-top: 5px;
+        margin-top: 10px;
+    }
+
+    &__extra {
+        margin-top: 20px;
     }
 }

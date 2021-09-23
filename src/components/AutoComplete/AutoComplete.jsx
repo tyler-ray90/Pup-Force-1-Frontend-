@@ -60,6 +60,7 @@ const AutoComplete = ({ placeholder, suggestions, input, setInput }) => {
                                 onClick={onSuggestionClick}
                             >
                                 {suggestion}
+                                <div className="autoComplete__list__blackLine"></div>
                             </li>
                         );
                     })}
