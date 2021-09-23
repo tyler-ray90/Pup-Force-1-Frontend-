@@ -11,12 +11,14 @@
     &__h2 {
         font-size: 64px;
         color: #FFFFFF;
+        margin-top: 0;
     }
 
     &__dropdown {
         width: 337px;
         height: 78px;
         border-radius: 39px;
+        padding: 0;
         background-color: #d8FEDE;
         display: flex;
         align-items: center;
