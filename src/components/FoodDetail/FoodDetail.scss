@@ -1,0 +1,292 @@
+.details {
+    font-family: 'Inter', sans-serif;
+    background-color: black;
+    color: #FFFFFF;
+
+    &__banner {
+        width: 100vw;
+        height: 217px;
+        position: relative;
+
+        &__imgContainer {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            &__img {
+                width: 100%;
+                height: 110%;
+            }
+        }
+
+        &__poison {
+            text-transform: uppercase;
+            color: white;
+            background-color: #3C3C3C;
+            border-radius: 4px;
+            width: 83px;
+            height: 20px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+        }
+
+        &__name {
+            width: 127px;
+            height: 42px;
+            background-color: rgba(60, 60, 60, 0.5);
+            border-radius: 8px;
+            position: absolute;
+            top: 166px;
+            margin: 0;
+            left: 11px;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        &__bookmark {
+            position: absolute;
+            top: 12px;
+            right: 13px;
+            color: #FFEA79;
+            font-size: 30px;
+            text-shadow: 0px 0px 2px black;
+        }
+    }
+
+    &__list {
+        width: 82%;
+        margin: 50px auto;
+
+        &__item {
+            font-size: 16px;
+            line-height: 17.6px;
+            margin: 30px 0;
+        }
+    }
+
+    &__whiteLine {
+        width: 362px;
+        height: 1px;
+        background-color: #C4C4C4;
+        margin: 60px auto 23px;
+    }
+
+    &__toxicity {
+        font-weight: 500;
+    }
+
+    &__scale {
+        width: 362px;
+        height: 422px;
+        background-color: #EFEAE7;
+        margin: 0 auto;
+        padding-top: 12px;
+        color: #000000;
+
+        &__instructions {
+            font-size: 19px;
+            text-align: center;
+        }
+
+        &__container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            width: 100%;
+            padding: 0;
+            position: relative;
+            &__weights {
+            
+                padding: 0;
+                width: 75px;
+                &__item {
+                    font-size: 16px;
+                    line-height: 18px;
+                    margin: 14px 16px;
+                    list-style: none;
+                    width: 75px;
+                }
+            }
+    
+            &__slider {
+                // Slider styles refrenced from https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+                -webkit-appearance: none;
+                background: transparent;
+                transform: rotate(-90deg);
+                margin-top: 120px;
+
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    border: 1px solid #000000;
+                    height: 32px;
+                    width: 32px;
+                    border-radius: 50%;
+                    background: #C4C4C4;
+                    cursor: pointer;
+                    margin-top: -12px;
+                    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+                }
+
+                &::-moz-range-thumb {
+                    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+                    border: 1px solid #000000;
+                    height: 32px;
+                    width: 32px;
+                    border-radius: 50%;
+                    background: #C4C4C4;
+                    cursor: pointer;
+                }
+
+                &::-ms-thumb {
+                    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+                    border: 1px solid #000000;
+                    height: 32px;
+                    width: 32px;
+                    border-radius: 50%;
+                    background: #C4C4C4;
+                    cursor: pointer;
+                }
+
+                &::-webkit-slider-runnable-track {
+                    width: 244px;
+                    height: 8px;
+                    cursor: pointer;
+                    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+                    background: #363636;
+                    
+                }
+
+                &:focus::-webkit-slider-runnable-track {
+                    background: #363636;
+                }
+
+                &::-moz-range-track {
+                    width: 244px;
+                    height: 8px;
+                    cursor: pointer;
+                    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+                    background: #363636;
+                }
+                
+                &::-ms-track {
+                    width: 244px;
+                    height: 8px;
+                    cursor: pointer;
+                    background: transparent;
+                    border-color: transparent;
+                    border-width: 16px 0;
+                    color: transparent;
+                }
+
+                &::-ms-fill-lower {
+                    background: #363636;
+                    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+                }
+
+                &:focus::-ms-fill-lower {
+                    background: #363636;
+                }
+                
+                &::-ms-fill-upper {
+                    background: #363636;
+                    border: 0.2px solid #010101;
+                }
+                
+                &:focus::-ms-fill-upper {
+                    background: #363636;
+                }
+
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::-ms-track {
+                    width: 100%;
+                    cursor: pointer;
+                    background: transparent;
+                    border-color: transparent;
+                    color: transparent;
+                }
+            }
+    
+            &__toxicBar {
+                width: 38px;
+                height: 244px;
+                background: linear-gradient(180deg, #4ECB71 -74.59%, #7B9754 8.41%, #FF0000 153.07%);
+                transform: rotate(-180deg);
+                position: relative;
+
+                &__highlight {
+                    width: 38px;
+                    height: 25px;
+                    // border: 2px solid red;
+                    position: absolute;
+                    right: 0px;
+                    // top: 0%;
+                    // 237
+                    background-color: rgba(204, 255, 0, 0.5);
+                }
+            }
+    
+            
+
+            &__posionousList {
+                padding: 0;
+                width: 100px;
+                height: 244px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                &__item {
+                    list-style: none;
+                    text-align: right;
+                    margin: 18px 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    
+                    &__div1 {
+                        width: 20px;
+                        height: 0px;
+                        border: 1px solid #000000;
+                        display: inline-block;
+                        margin-right: 7px;
+                    }
+
+                    &__div2 {
+                        width: 40px;
+                        height: 0px;
+                        border: 1px solid #000000;
+                        display: inline-block;
+                        margin-right: 12px;
+                    }
+
+                    &__div3 {
+                        width: 20px;
+                        height: 0px;
+                        border: 1px solid #000000;
+                        display: inline-block;
+                        margin-right: 12px;
+                    }
+
+                    &__div4 {
+                        width: 31px;
+                        height: 0px;
+                        border: 1px solid #000000;
+                        display: inline-block;
+                        margin-right: 16px;
+                    }
+                }
+            }
+        }       
+    }
+}
