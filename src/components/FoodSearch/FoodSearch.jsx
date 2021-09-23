@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { findResult } from 'utils.js/parse';
 import './FoodSearch.scss';
+import { Link } from 'react-router-dom';
 
 const FoodSearch = (props) => {
     const [data] = useRecoilState(dataAtom);
@@ -82,7 +83,7 @@ const FoodSearch = (props) => {
                         className="foodSearch__dropdown__placeholder"
                         onClick={toggleListOpen}
                     >
-                        {animalList[0] + "s"}
+                        {animalList[0] + 's'}
                     </p>
                 )}
 
@@ -114,7 +115,13 @@ const FoodSearch = (props) => {
             />
             <div className="foodSearch__grayLine foodSearch__extra"></div>
             <div className="foodSearch__button">{result.answer}</div>
-            {![isEdibleString, isNotEdibleString].includes(result.answer) && (
+            {[isEdibleString, isNotEdibleString].includes(result.answer) ? (
+                <div>
+                    <Link to={`/results/${foodInput}/${animalList[0]}`}>
+                        Learn more about {animalList[0]} and {foodInput}
+                    </Link>
+                </div>
+            ) : (
                 <Contribute
                     currentAnimal={animalList[0]}
                     currentFood={foodInput}

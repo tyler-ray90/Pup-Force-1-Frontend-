@@ -81,7 +81,7 @@ const FoodForm = ({ currentAnimal, currentFood }) => {
                 onChange={handleChange}
             />
             <div>
-                <label htmlFor="edible">
+                <label htmlFor="edible" style={{ color: 'blue' }}>
                     edible?
                     <input
                         type="checkbox"
