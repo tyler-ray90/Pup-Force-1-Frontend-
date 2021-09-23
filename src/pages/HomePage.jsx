@@ -1,7 +1,10 @@
 //Imported Components
 import FoodSearch from 'components/FoodSearch/FoodSearch';
 // import Search from 'components/Search/Search';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { data as dataAtom } from 'atoms';
+import { useRecoilState } from 'recoil';
+
 const {
     NODE_ENV: mode,
     REACT_APP_DEV_API_PORT: port,
@@ -15,7 +18,7 @@ const apiURL =
 const HomePage = (props) => {
     //! START API CODE
 
-    const [data, setData] = useState(null);
+    const [data, setData] = useRecoilState(dataAtom);
     const getFood = async () => {
         const response = await fetch(apiURL);
         const data = await response.json();
@@ -33,6 +36,7 @@ const HomePage = (props) => {
 
     useEffect(() => {
         getFood();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     //! END API CODE

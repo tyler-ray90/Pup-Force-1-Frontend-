@@ -5,6 +5,8 @@ import './FoodSearch.scss';
 
 const unknownAnswerString = '❓';
 const waitingString = '...';
+const isEdibleString = 'safe';
+const isNotEdibleString = 'unsafe';
 
 const FoodSearch = ({ data, addOrUpdate }) => {
     const [isListOpen, setIsListOpen] = useState(false);
@@ -48,7 +50,7 @@ const FoodSearch = ({ data, addOrUpdate }) => {
             );
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [data, foodInput, animalList]);
+    }, [data, foodInput, animalList, isListOpen]);
 
     const findAnswer = ({ selectedFood, selectedAnimal }) => {
         const info = data.find(({ food }) => food === selectedFood);
@@ -61,7 +63,7 @@ const FoodSearch = ({ data, addOrUpdate }) => {
         if (!answer) {
             return unknownAnswerString;
         }
-        return answer.edible;
+        return answer.edible === 'true' ? isEdibleString : isNotEdibleString;
     };
 
     const handleAnimalSelection = (e) => {

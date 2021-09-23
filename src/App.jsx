@@ -9,8 +9,6 @@ import SupportPage from 'pages/SupportPage';
 //Imported Components
 import Nav from 'components/Nav/Nav';
 
-
-
 const App = () => {
     //! BrowserRouter already in index.jsx
     return (
@@ -18,16 +16,15 @@ const App = () => {
             {/* <Nav/> */}
             <Switch>
                 <Route
-                    exact path="/"
+                    exact
+                    path="/"
                     render={(props) => <HomePage {...props} />}
                 />
+                <Route exact path="/about" render={(props) => <AboutPage />} />
                 <Route
-                    exact path="/about"
-                    render={(props) => <AboutPage/>}
-                />
-                <Route 
-                    exact path="/support"
-                    render={(props) => <SupportPage/>}
+                    exact
+                    path="/support"
+                    render={(props) => <SupportPage />}
                 />
             </Switch>
         </div>
