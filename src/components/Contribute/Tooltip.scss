@@ -1,0 +1,114 @@
+// VARIABLES
+
+$grey: #ccc;
+$grey-dark: #464646;
+$grey-air: #f3f3f3;
+$teal: #00afaf;
+
+$space-small: 8px;
+$space-related: 12px;
+$space-base: 16px;
+$space-large: 24px;
+$space-extra: $space-large * 2;
+
+$btn-height: 30px;
+$btn-padding: $space-base;
+$btn-radius: 3px;
+
+$tooltip-bg: white;
+$tooltip-border: $grey;
+$tooltip-radius: 3px;
+$tooltip-shadow: 0 2px 2px 0 rgba(black, 0.1);
+$tooltip-transition: all 0.25s ease;
+$tooltip-triangle: 10px;
+
+.tooltip-button {
+    margin-right: $space-related;
+    padding: 0 $btn-padding;
+    border-radius: $btn-radius;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 1px;
+        background-color: inherit;
+        border-radius: $btn-radius - 1px;
+    }
+}
+
+// CSS TOOLTIP
+
+[data-tooltip] {
+    position: relative;
+    pointer-events: all;
+
+    &::before,
+    &::after {
+        margin: 0;
+        padding: 0;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 101;
+        top: auto;
+        right: auto;
+        bottom: 100%;
+        left: 50%;
+        width: $tooltip-triangle;
+        height: $tooltip-triangle;
+        margin-bottom: $space-small + 2px;
+        margin-left: -($tooltip-triangle / 2);
+        background: $tooltip-bg;
+        box-shadow: 0 4px 2px 0 rgba(black, 0.1), 1px 1px 0 0 $tooltip-border;
+        font-size: 1rem;
+        visibility: hidden;
+        user-select: none;
+        opacity: 0;
+
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        z-index: 100;
+        left: 50%;
+        bottom: 100%;
+        margin-bottom: $space-related + 2px;
+        padding: $space-related;
+        color: $grey-dark;
+        background: $tooltip-bg;
+        border: 1px solid $tooltip-border;
+        border-radius: $tooltip-radius;
+        box-shadow: $tooltip-shadow;
+        font-size: 13px;
+        line-height: 1.2em;
+        white-space: nowrap;
+        visibility: hidden;
+        user-select: none;
+
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+
+    &:hover {
+        &::before,
+        &::after {
+            visibility: visible;
+
+            opacity: 1;
+            transition: $tooltip-transition;
+        }
+    }
+}
