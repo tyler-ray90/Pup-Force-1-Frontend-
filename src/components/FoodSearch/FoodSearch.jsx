@@ -77,7 +77,7 @@ const FoodSearch = (props) => {
                         className="foodSearch__dropdown__placeholder"
                         onClick={toggleListOpen}
                     >
-                        {animalList[0]}
+                        {animalList[0] + "s"}
                     </p>
                 )}
 
@@ -99,14 +99,14 @@ const FoodSearch = (props) => {
                 )}
             </div>
             <div className="foodSearch__grayLine"></div>
-            <h2 className="foodSearch__h2">Eat</h2>
+            <h2 className="foodSearch__h2">eat</h2>
             <AutoComplete
                 placeholder={data[0]?.food}
                 suggestions={foodList}
                 input={foodInput}
                 setInput={setFoodInput}
             />
-            <div className="foodSearch__grayLine"></div>
+            <div className="foodSearch__grayLine foodSearch__extra"></div>
             <div className="foodSearch__button">{result.answer}</div>
             {/* <button className="foodSearch__button">?</button> */}
         </div>
