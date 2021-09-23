@@ -2,38 +2,11 @@ import { useState } from 'react';
 
 import './AutoComplete.scss';
 
-const AutoComplete = ({ placeholder }) => {
+const AutoComplete = ({ placeholder, suggestions, input, setInput }) => {
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
     const [showSuggestions, setShowSuggestions] = useState(false);
-    const [input, setInput] = useState('');
-
-    // List of suggestions
-    let suggestions = [
-        'Chocolate',
-        'Onions',
-        'Carrots',
-        'Grapes',
-        'Raisins',
-        'Salt',
-        'Peanut Butter',
-        'Eggs',
-        'Salmon',
-        'Chocolate',
-        'Cheese',
-        'Blueberries',
-        'Popcorn',
-        'Cashews',
-        'Macadamia Nuts',
-        'Almonds',
-        'Pineapple',
-        'Onions',
-        'Watermelon',
-        'Bread',
-        'Cottage Cheese',
-        'Blackberries',
-        'Avocado',
-    ];
+    // const [input, setInput] = useState('');
 
     // Change Method for autocomplete
     const onInputChange = (e) => {
