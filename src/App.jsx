@@ -8,6 +8,7 @@ import SupportPage from 'pages/SupportPage';
 
 //Imported Components
 import Nav from 'components/Nav/Nav';
+import FoodDetail from 'components/FoodDetail/FoodDetail';
 
 
 
@@ -28,6 +29,10 @@ const App = () => {
                 <Route 
                     exact path="/support"
                     render={(props) => <SupportPage/>}
+                />
+                <Route 
+                    exact path="/details"
+                    render={(props) => <FoodDetail />}
                 />
             </Switch>
         </div>
