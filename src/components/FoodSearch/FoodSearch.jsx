@@ -120,7 +120,7 @@ const FoodSearch = (props) => {
             {[isEdibleString, isNotEdibleString].includes(result.answer) ? (
                 <div>
                     <Link to={`/results/${foodInput}/${animalList[0]}`}>
-                        Learn more about {animalList[0]} and {foodInput}
+                        Learn more about {animalList[0]}s and {foodInput}s
                     </Link>
                 </div>
             ) : (
