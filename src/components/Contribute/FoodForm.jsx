@@ -1,19 +1,10 @@
 import { data as dataAtom } from 'atoms';
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
-
-const {
-    NODE_ENV: mode,
-    REACT_APP_DEV_API_PORT: port,
-    REACT_APP_PROD_API_URL: liveApi,
-} = process.env;
-const apiURL =
-    mode === 'development'
-        ? `http://localhost:${port}/food`
-        : `${liveApi}/food` || `http://localhost:${port}/food`;
+import { apiURL } from 'constants/endpoints';
 
 const FoodForm = ({ currentAnimal, currentFood }) => {
-    const [data, setData] = useRecoilState(dataAtom);
+    const [_, setData] = useRecoilState(dataAtom);
     const getFood = async () => {
         try {
             const response = await fetch(apiURL);
@@ -58,46 +49,49 @@ const FoodForm = ({ currentAnimal, currentFood }) => {
         setFormData(updatedFormData);
     };
     return (
-        <div>
-            <form
-                onChange={(event) => handleChange(event)}
-                onSubmit={(event) => processUpdate(event)}
-            >
-                <input type="submit" value="Contribute!" />
-                <input
-                    type="text"
-                    name="animal"
-                    placeholder="animal name"
-                    value={formData.animal}
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    name="food"
-                    placeholder="food name"
-                    value={formData.food}
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    name="notes"
-                    placeholder="any notes?"
-                    value={formData.notes}
-                    onChange={handleChange}
-                />
-                <div>
-                    <label htmlFor="edible">
-                        edible?
-                        <input
-                            type="checkbox"
-                            name="edible"
-                            onChange={handleChange}
-                        ></input>
-                    </label>
-                    <span></span>
-                </div>
-            </form>
-        </div>
+        <form
+            onChange={(event) => handleChange(event)}
+            onSubmit={(event) => processUpdate(event)}
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                flexGap: '1em',
+            }}
+        >
+            <input type="submit" value="Contribute!" />
+            <input
+                type="text"
+                name="animal"
+                placeholder="animal name"
+                value={formData.animal}
+                onChange={handleChange}
+            />
+            <input
+                type="text"
+                name="food"
+                placeholder="food name"
+                value={formData.food}
+                onChange={handleChange}
+            />
+            <input
+                type="text"
+                name="notes"
+                placeholder="any notes?"
+                value={formData.notes}
+                onChange={handleChange}
+            />
+            <div>
+                <label htmlFor="edible">
+                    edible?
+                    <input
+                        type="checkbox"
+                        name="edible"
+                        onChange={handleChange}
+                    ></input>
+                </label>
+                <span></span>
+            </div>
+        </form>
     );
 };
 
