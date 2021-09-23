@@ -93,6 +93,7 @@ const FoodSearch = (props) => {
                                 }}
                             >
                                 {animal}
+                                <div className="foodSearch__dropdown__list__blackLine"></div>
                             </li>
                         ))}
                     </ul>
