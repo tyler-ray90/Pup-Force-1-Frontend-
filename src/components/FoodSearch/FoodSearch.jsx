@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import './FoodSearch.scss';
 
 const unknownAnswerString = '❓';
+const waitingString = '...';
 
 const FoodSearch = ({ data, addOrUpdate }) => {
     const [isListOpen, setIsListOpen] = useState(false);
     const [foodInput, setFoodInput] = useState('');
     const [foodList, setFoodList] = useState([]);
     const [animalList, setAnimalList] = useState([]);
-    const [answer, setAnswer] = useState(unknownAnswerString);
+    const [answer, setAnswer] = useState(waitingString);
 
     const toggleListOpen = () => {
         isListOpen ? setIsListOpen(false) : setIsListOpen(true);
@@ -51,7 +52,7 @@ const FoodSearch = ({ data, addOrUpdate }) => {
     const findAnswer = ({ selectedFood, selectedAnimal }) => {
         const info = data.find(({ food }) => food === selectedFood);
         if (!info) {
-            return unknownAnswerString;
+            return waitingString;
         }
         const answer = info.data.find(
             ({ animal }) => animal === selectedAnimal
