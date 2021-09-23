@@ -6,7 +6,6 @@ const AutoComplete = ({ placeholder, suggestions, input, setInput }) => {
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
     const [showSuggestions, setShowSuggestions] = useState(false);
-    // const [input, setInput] = useState('');
 
     // Change Method for autocomplete
     const onInputChange = (e) => {
