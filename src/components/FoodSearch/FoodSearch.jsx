@@ -47,6 +47,7 @@ const FoodSearch = ({ data, addOrUpdate }) => {
                 })
             );
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data, foodInput, animalList]);
 
     const findAnswer = ({ selectedFood, selectedAnimal }) => {
