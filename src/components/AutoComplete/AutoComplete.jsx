@@ -39,6 +39,7 @@ const AutoComplete = ({ placeholder, suggestions, input, setInput }) => {
     return (
         <div className="autoComplete">
             <input
+                id="autoComplete__placeholder"
                 type="text"
                 onChange={(e) => onInputChange(e)}
                 value={input}

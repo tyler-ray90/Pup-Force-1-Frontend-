@@ -26,8 +26,8 @@ const FoodForm = ({ currentAnimal, currentFood }) => {
     };
 
     const [formData, setFormData] = useState({
-        food: currentFood.trim(),
-        animal: currentAnimal.trim(),
+        food: currentFood,
+        animal: currentAnimal,
         edible: false,
         notes: '',
     });
@@ -35,7 +35,13 @@ const FoodForm = ({ currentAnimal, currentFood }) => {
     const processUpdate = (event) => {
         event.preventDefault();
         console.log(formData);
-        addOrUpdate(formData);
+        const { food, animal, edible, notes } = formData;
+        addOrUpdate({
+            food: food?.trim(),
+            animal: animal?.trim(),
+            edible,
+            notes,
+        });
     };
 
     const handleChange = (event) => {
@@ -65,6 +71,7 @@ const FoodForm = ({ currentAnimal, currentFood }) => {
                 placeholder="animal name"
                 value={formData.animal}
                 onChange={handleChange}
+                required
             />
             <input
                 type="text"
@@ -72,6 +79,7 @@ const FoodForm = ({ currentAnimal, currentFood }) => {
                 placeholder="food name"
                 value={formData.food}
                 onChange={handleChange}
+                required
             />
             <input
                 type="text"

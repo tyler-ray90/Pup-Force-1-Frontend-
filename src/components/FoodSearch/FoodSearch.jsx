@@ -83,9 +83,9 @@ const FoodSearch = (props) => {
                         className="foodSearch__dropdown__placeholder"
                         onClick={toggleListOpen}
                     >
-                        {animalList[0] && animalList[0] !== ''
-                            ? `${animalList[0]}s`
-                            : 'server down!'}
+                        {animalList[0]}
+                        {/* {animalList[0] ? `${animalList[0]}s` : 'server down!'} */}
+                        {/* {animalList[0] ? `${animalList[0]}s` : 'server down!'} */}
                     </p>
                 )}
 
