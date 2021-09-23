@@ -1,3 +1,4 @@
+import { data as dataAtom } from 'atoms';
 import AutoComplete from 'components/AutoComplete/AutoComplete';
 import { useEffect, useState } from 'react';
 
@@ -11,7 +12,7 @@ const FoodSearch = ({ data, addOrUpdate }) => {
     const [foodInput, setFoodInput] = useState('');
     const [foodList, setFoodList] = useState([]);
     const [animalList, setAnimalList] = useState([]);
-    const [answer, setAnswer] = useState(waitingString);
+    const [result, setResult] = useState({ answer: waitingString });
 
     const toggleListOpen = () => {
         isListOpen ? setIsListOpen(false) : setIsListOpen(true);
@@ -40,28 +41,16 @@ const FoodSearch = ({ data, addOrUpdate }) => {
             animalList.length !== 0 &&
             !isListOpen
         ) {
-            setAnswer(
-                findAnswer({
+            setResult(
+                findResult({
+                    data,
                     selectedFood: foodInput,
                     selectedAnimal: animalList[0],
                 })
             );
         }
-    }, [data, foodInput, animalList]);
-
-    const findAnswer = ({ selectedFood, selectedAnimal }) => {
-        const info = data.find(({ food }) => food === selectedFood);
-        if (!info) {
-            return waitingString;
-        }
-        const answer = info.data.find(
-            ({ animal }) => animal === selectedAnimal
-        );
-        if (!answer) {
-            return unknownAnswerString;
-        }
-        return answer.edible;
-    };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [data, foodInput, animalList, isListOpen]);
 
     const handleAnimalSelection = (e) => {
         e.preventDefault();
@@ -75,59 +64,55 @@ const FoodSearch = ({ data, addOrUpdate }) => {
         setAnimalList(updatedAnimalList);
     };
 
-    const loaded = () => {
-        return (
-            <div className="foodSearch">
-                <h2 className="foodSearch__h2">Can</h2>
-                {/* <select className="foodSearch__dropdown__select" id="pets">
+    return data ? (
+        <div className="foodSearch">
+            <h2 className="foodSearch__h2">Can</h2>
+            {/* <select className="foodSearch__dropdown__select" id="pets">
                     <option className="foodSearch__option" value="Cats">Cats</option>
                     <option className="foodSearch__option" value="Dogs">Dogs</option>
                 </select>  */}
-                <div className="foodSearch__dropdown">
-                    {!isListOpen && (
-                        <p
-                            className="foodSearch__dropdown__placeholder"
-                            onClick={toggleListOpen}
-                        >
-                            {animalList[0]}
-                        </p>
-                    )}
+            <div className="foodSearch__dropdown">
+                {!isListOpen && (
+                    <p
+                        className="foodSearch__dropdown__placeholder"
+                        onClick={toggleListOpen}
+                    >
+                        {animalList[0]}
+                    </p>
+                )}
 
-                    {isListOpen && (
-                        <ul className="foodSearch__dropdown__list">
-                            {animalList.map((animal, i) => (
-                                <li
-                                    key={i}
-                                    className="foodSearch__dropdown__list__item"
-                                    onClick={(e) => {
-                                        toggleListOpen();
-                                        handleAnimalSelection(e);
-                                    }}
-                                >
-                                    {animal}
-                                </li>
-                            ))}
-                        </ul>
-                    )}
-                </div>
-                <div className="foodSearch__grayLine"></div>
-                <h2 className="foodSearch__h2">Eat</h2>
-                <AutoComplete
-                    placeholder={data[0]?.food}
-                    suggestions={foodList}
-                    input={foodInput}
-                    setInput={setFoodInput}
-                />
-                <div className="foodSearch__grayLine"></div>
-                <div className="foodSearch__button">{answer}</div>
-                {/* <button className="foodSearch__button">?</button> */}
+                {isListOpen && (
+                    <ul className="foodSearch__dropdown__list">
+                        {animalList.map((animal, i) => (
+                            <li
+                                key={i}
+                                className="foodSearch__dropdown__list__item"
+                                onClick={(e) => {
+                                    toggleListOpen();
+                                    handleAnimalSelection(e);
+                                }}
+                            >
+                                {animal}
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
-        );
-    };
-
-    const loading = () => <div>mock outline of component while loading...</div>;
-
-    return data ? loaded() : loading();
+            <div className="foodSearch__grayLine"></div>
+            <h2 className="foodSearch__h2">Eat</h2>
+            <AutoComplete
+                placeholder={data[0]?.food}
+                suggestions={foodList}
+                input={foodInput}
+                setInput={setFoodInput}
+            />
+            <div className="foodSearch__grayLine"></div>
+            <div className="foodSearch__button">{result.answer}</div>
+            {/* <button className="foodSearch__button">?</button> */}
+        </div>
+    ) : (
+        <></>
+    );
 };
 
 export default FoodSearch;

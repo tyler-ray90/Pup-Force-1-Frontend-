@@ -1,6 +1,7 @@
 //Imported Components
 import FoodSearch from 'components/FoodSearch/FoodSearch';
 // import Search from 'components/Search/Search';
+<<<<<<< HEAD
 import { useEffect, useState } from 'react';
 const {
     NODE_ENV: mode,
@@ -42,14 +43,22 @@ const HomePage = (props) => {
 
     //! END API CODE
 
+=======
+
+const HomePage = (props) => {
+
     return (
         <div>
             {/* <h2>Welcome, (user) to Pooch-a-medic. Search below of a list of food your pet can and cannot eat.</h2>
         <Search/> */}
+
             <FoodSearch data={data} addOrUpdate={addOrUpdate} />
         </div>
     );
->>>>>>> 940572a3d9d5c29f28eb3f298f74cfda33d48fad
+
+            <FoodSearch />
+        </div>
+    );
 };
 
 export default HomePage;
