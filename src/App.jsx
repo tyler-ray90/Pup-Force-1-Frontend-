@@ -28,9 +28,14 @@ const App = () => {
 
     const [data, setData] = useRecoilState(dataAtom);
     const getFood = async () => {
-        const response = await fetch(apiURL);
-        const data = await response.json();
-        setData(data);
+        try {
+            const response = await fetch(apiURL);
+            const data = await response.json();
+            setData(data);
+        } catch (error) {
+            console.error(error.message);
+            setData([]);
+        }
     };
 
     const addOrUpdate = async (formData) => {
@@ -50,7 +55,7 @@ const App = () => {
     //! END API CODE
     return (
         <div className="App">
-            {/* <Nav/> */}
+            <Nav />
             <Switch>
                 <Route
                     exact
