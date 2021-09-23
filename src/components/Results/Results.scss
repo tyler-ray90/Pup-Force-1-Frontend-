@@ -1,0 +1,59 @@
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    background-color: black;
+    height: 100vh;
+
+    &__h2 {
+        font-size: 2rem;
+        color: white;
+    }
+
+    &__field {
+        width: 100px;
+        height: 30px;
+        border-radius: 20px;
+        background-color: #d8fede;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        &__result {
+            color: black;
+            font-size: 1rem;
+        }
+    }
+
+    &__grayLine {
+        height: 1px;
+        width: 100px;
+        background-color: white;
+        margin-top: 5px;
+    }
+
+    &__recommendation {
+        margin: 20px 0;
+    }
+
+    &__contactVet {
+        background-color: #ff3333;
+        width: 120px;
+        height: 30px;
+        color: white;
+        border-radius: 42px;
+        position: relative;
+        padding-bottom: 5px;
+        text-decoration: underline;
+
+        &__star {
+            font-size: 2rem;
+            top: 0px;
+            left: 10px;
+            position: absolute;
+        }
+    }
+}

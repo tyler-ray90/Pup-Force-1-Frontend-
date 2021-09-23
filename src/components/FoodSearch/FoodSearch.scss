@@ -1,0 +1,120 @@
+.foodSearch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+
+    &__h2 {
+        font-size: 64px;
+        color: #FFFFFF;
+    }
+
+    &__dropdown {
+        width: 337px;
+        height: 78px;
+        border-radius: 39px;
+        background-color: #d8FEDE;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        &__placeholder {
+            color: black;
+            font-size: 64px;
+            font-weight: bold;
+            line-height: 64px;
+        }
+
+        &__list {
+            list-style: none;
+            position: absolute;
+            top: 90px;
+            // min-height: 50px;
+            max-height: 100px;
+            overflow: scroll;
+            width: 278px;
+            background-color: #FFFFFF;
+            border: 1px solid #C9CACE;
+            border-radius: 0px 0px 8px 8px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            &__item {
+                color: black;
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+                font-family: 'Inter', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 30px;
+                line-height: 50px;
+            }
+
+            &__blackLine {
+                width: 245px;
+                height: 1px;
+                background-color: #C9CACE;
+                margin: 0 auto;
+            }
+
+            &__item:hover {
+                color: black;
+                background-color: white;
+            }
+        }
+
+        &__search {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            
+            
+            &::placeholder {
+                color: white;
+                text-align: center;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    &__button {
+        background-color: #C0DDFB;
+        box-shadow: 10px 10px 20px rgba(122, 122, 122, 0.25);
+        border-radius: 50%;
+        min-width: fit-content;
+        width: 99px;
+        height: 99px;
+        border: none;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        margin-top: 20px;
+    }
+
+    &__grayLine {
+        width: 278px;
+        height: 4px;
+        background-color: #c4c4c4;
+        margin-top: 10px;
+    }
+
+    &__extra {
+        margin-top: 20px;
+    }
+}
