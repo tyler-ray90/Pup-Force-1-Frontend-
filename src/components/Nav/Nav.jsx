@@ -5,6 +5,8 @@ import * as AiIcons from 'react-icons/ai';
 import './Nav.scss';
 import { IconContext } from 'react-icons';
 
+import logo from '../../resources/images/logo.png';
+
 import { SidebarData } from './SidebarData';
 
 function Nav() {
@@ -19,6 +21,9 @@ function Nav() {
                 <Link to="#" className='menu-bars'>
                 <FaIcons.FaBars onClick={showSidebar}/>
                 </Link>
+                <div className="top-logo">
+                    <img className="top-logo-img" src={logo} alt="logo of dog sleeping"/>
+                </div> 
             </div>
             <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
              <ul className='nav-menu-items' onClick={showSidebar}>
@@ -37,7 +42,11 @@ function Nav() {
                         </li>
                     )
                 })}
-             </ul>   
+             </ul>  
+             <div className="nav-logo">
+                <img className="nav-logo-img" src={logo} alt="logo of dog sleeping"/>
+                <p className="nav-logo-text">Can Spot Eat</p>
+            </div> 
             </nav>
             </IconContext.Provider>
         </>
