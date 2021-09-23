@@ -1,6 +1,11 @@
+import Contribute from 'components/Contribute/Contribute';
 import { data as dataAtom } from 'atoms';
 import AutoComplete from 'components/AutoComplete/AutoComplete';
-import { waitingString } from 'constants/displayStrings';
+import {
+    waitingString,
+    isEdibleString,
+    isNotEdibleString,
+} from 'constants/displayStrings';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { findResult } from 'utils.js/parse';
@@ -109,7 +114,12 @@ const FoodSearch = (props) => {
             />
             <div className="foodSearch__grayLine foodSearch__extra"></div>
             <div className="foodSearch__button">{result.answer}</div>
-            {/* <button className="foodSearch__button">?</button> */}
+            {![isEdibleString, isNotEdibleString].includes(result.answer) && (
+                <Contribute
+                    currentAnimal={animalList[0]}
+                    currentFood={foodInput}
+                />
+            )}
         </div>
     ) : (
         <></>

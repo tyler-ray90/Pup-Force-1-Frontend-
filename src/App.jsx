@@ -12,16 +12,7 @@ import { Route, Switch } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import Nav from 'components/Nav/Nav';
 import FoodDetail from 'components/FoodDetail/FoodDetail';
-
-const {
-    NODE_ENV: mode,
-    REACT_APP_DEV_API_PORT: port,
-    REACT_APP_PROD_API_URL: liveApi,
-} = process.env;
-const apiURL =
-    mode === 'development'
-        ? `http://localhost:${port}/food`
-        : `${liveApi}/food` || `http://localhost:${port}/food`;
+import { apiURL } from 'constants/endpoints';
 
 const App = () => {
     //! START API CODE
@@ -69,8 +60,9 @@ const App = () => {
                     path="/support"
                     render={(props) => <SupportPage />}
                 />
-                 <Route 
-                    exact path="/details"
+                <Route
+                    exact
+                    path="/details"
                     render={(props) => <FoodDetail />}
                 />
                 <Route
