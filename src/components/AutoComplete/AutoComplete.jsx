@@ -2,19 +2,16 @@ import { useState } from 'react';
 
 import './AutoComplete.scss';
 
-const AutoComplete = ({ placeholder }) => {
+const AutoComplete = ({ placeholder, suggestions, input, setInput }) => {
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
     const [showSuggestions, setShowSuggestions] = useState(false);
-    const [input, setInput] = useState('')
-
-    // List of suggestions
-    let suggestions = ["Chocolate", "Onions", "Carrots", "Grapes", "Raisins", "Salt", "Peanut Butter", "Eggs", "Salmon", "Chocolate", "Cheese", "Blueberries", "Popcorn", "Cashews", "Macadamia Nuts", "Almonds", "Pineapple", "Onions", "Watermelon", "Bread", "Cottage Cheese", "Blackberries", "Avacodo"];
+    // const [input, setInput] = useState('');
 
     // Change Method for autocomplete
     const onInputChange = (e) => {
         const userInput = e.target.value;
-        if(userInput === "") {
+        if (userInput === '') {
             setShowSuggestions(false);
             setInput(userInput);
             setFilteredSuggestions([]);
@@ -22,31 +19,30 @@ const AutoComplete = ({ placeholder }) => {
         } else {
             // Filter out suggestions that dont match input
             const suggested = suggestions.filter(
-                (suggestion) => suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+                (suggestion) =>
+                    suggestion.toLowerCase().indexOf(userInput.toLowerCase()) >
+                    -1
             );
             setInput(e.target.value);
             setFilteredSuggestions(suggested);
             setActiveSuggestionIndex(0);
             setShowSuggestions(true);
         }
-        
-
-        
-    }
+    };
 
     const onSuggestionClick = (e) => {
         setFilteredSuggestions([]);
         setInput(e.target.innerText);
         setActiveSuggestionIndex(0);
         setShowSuggestions(false);
-    }
+    };
 
     return (
         <div className="autoComplete">
-            <input 
-                type="text" 
-                onChange={e => onInputChange(e)}
-                value={input}    
+            <input
+                type="text"
+                onChange={(e) => onInputChange(e)}
+                value={input}
                 className="autoComplete__input"
                 placeholder={placeholder}
             />
@@ -55,18 +51,23 @@ const AutoComplete = ({ placeholder }) => {
                     {filteredSuggestions.map((suggestion, index) => {
                         let className;
                         if (index === activeSuggestionIndex) {
-                            className = "autoComplete__list__item suggestion-active"
+                            className =
+                                'autoComplete__list__item suggestion-active';
                         }
                         return (
-                            <li className="autoComplete__list__item" key={suggestion} onClick={onSuggestionClick}>
+                            <li
+                                className="autoComplete__list__item"
+                                key={suggestion}
+                                onClick={onSuggestionClick}
+                            >
                                 {suggestion}
                             </li>
-                        )
+                        );
                     })}
                 </ul>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default AutoComplete
+export default AutoComplete;

@@ -119,3 +119,5 @@ dist
 .pnp.*
 
 .vscode/settings.json
+
+build/
