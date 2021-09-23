@@ -5,12 +5,13 @@ import AboutPage from 'pages/AboutPage';
 import HomePage from 'pages/HomePage';
 import ResultPage from 'pages/ResultPage';
 import SupportPage from 'pages/SupportPage';
-//Imported Components
-// import Nav from 'components/Nav/Nav';
+
 import { useEffect } from 'react';
 import { Redirect } from 'react-router';
 import { Route, Switch } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
+import Nav from 'components/Nav/Nav';
+import FoodDetail from 'components/FoodDetail/FoodDetail';
 
 const {
     NODE_ENV: mode,
@@ -63,10 +64,14 @@ const App = () => {
                     path="/support"
                     render={(props) => <SupportPage />}
                 />
+                 <Route 
+                    exact path="/details"
+                    render={(props) => <FoodDetail />}
+                />
                 <Route
                     path="/results/:food/:animal"
                     render={(props) => <ResultPage {...props} />}
-                ></Route>
+                />
                 <Route render={() => <Redirect to="/" />} />
             </Switch>
         </div>
