@@ -71,3 +71,7 @@ section {
 .button:hover {
     background-color: #3e8e41;
 }
+
+::placeholder {
+    opacity: 0.5; /* Firefox */
+}
